@@ -12,7 +12,27 @@
 
 int main()
 {
-	int i;
-	
+
+	int x=0;
+	int y=1;
+	int z;
+	int sum;
+	do
+	{
+		z = x + y;
+		x = y;
+		y = z;
+		if (y % 2 == 0)
+		{
+			sum = y + sum;
+		}
+	}
+	while (y <= 4000000);
+
+	printf("%d\n", sum);
+
 	return 0;
 }
+
+
+
