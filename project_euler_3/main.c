@@ -9,11 +9,17 @@
 
 #include <stdio.h>
 
-int main()
+int main(void)
 {
+  long n = 600851475143L;
+  long i;
 
-	return 0;
+  for (i = 2L; i < n; i++) {
+    while (n % i == 0) {
+      n /= i;
+    }
+  }
+  printf("%ld\n", n);
 }
-
 
 
