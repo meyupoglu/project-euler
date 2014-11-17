@@ -28,8 +28,49 @@
 /----------------------------------------------------------------------------*/
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 int main(void)
 {
+  int A[1000];
+  FILE* fp;
+  char c;
+  int i = 0;
+  int k;
+  int l;
+  uint64_t t;
+  uint64_t max = 0;
+
+  fp = fopen("number.txt", "r");
+
+  while(1)
+  {
+    c = fgetc(fp);
+    if(feof(fp))
+    {
+      break;
+    }
+    if(c != '\n')
+    {
+      k = atoi(&c);
+      A[i] = k;
+      i++;
+    }
+  }
+
+  fclose(fp); 
+
+  for(l = 0; l < 988; l++)
+  {
+    t = (A[l] * A[l + 1] * A[l + 2] * A[l + 3] * A[l + 4] * A[l + 5] * A[l + 6]
+    * A[l + 7] * A[l + 8] * A[l + 9] * A[l + 10] * A[l + 11] * A[l + 12]);
+    
+    if(t > max)
+    {
+      max = t;
+    }
+  }
   
+  printf("%llu\n", max);
 }
